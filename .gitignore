@@ -1,7 +1,6 @@
 **/.DS_Store
 /bin/
 .vscode
-/src/test/
 /test-lib/
 README.md
 

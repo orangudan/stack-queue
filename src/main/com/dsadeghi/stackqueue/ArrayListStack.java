@@ -1,36 +1,44 @@
 package com.dsadeghi.stackqueue;
 
+import java.util.ArrayList;
+import java.util.EmptyStackException;
+
 import my.library.StackInterface;
 
 public class ArrayListStack <E> implements StackInterface<E> {
 
+    private ArrayList<E> stack = new ArrayList<E>();
+
+    public int size() {
+        return stack.size();
+    }
+
     @Override
     public boolean empty() {
-        // TODO Auto-generated method stub
-        return false;
+        return stack.isEmpty();
     }
 
     @Override
-    public Object peek() {
-        // TODO Auto-generated method stub
-        return null;
+    public E peek() {
+        if (empty()) {
+            throw new EmptyStackException();
+        }
+
+        return stack.get(stack.size() - 1);
     }
 
     @Override
-    public Object pop() {
-        // TODO Auto-generated method stub
-        return null;
+    public E pop() {
+        if (empty()) {
+            throw new EmptyStackException();
+        }
+        return stack.remove(stack.size() - 1);
     }
 
     @Override
-    public Object push(Object obj) {
-        // TODO Auto-generated method stub
-        return null;
-    }
-
-    public boolean isPalindrome() {
-        // TODO Implement
-        return false;
+    public E push(E e) {
+        stack.add(e);
+        return e;
     }
     
 
